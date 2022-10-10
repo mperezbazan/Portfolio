@@ -445,6 +445,7 @@ ul {
   background-color: #3c3a39;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .close-button {
@@ -453,7 +454,26 @@ ul {
   border: 0;
   align-self: flex-end;
   font-size: 12px;
-  padding: 20px;
+  padding: 10px;
+}
+
+.menu-button {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  line-height: 44px;
+  font-weight: 700;
+}
+
+.menu-menu-list li {
+  border-bottom: 1px solid #6f6c6b;
+  padding: 15px;
+  margin-inline: 24px;
+}
+
+.menu-menu-list ul {
+  padding: 10px;
 }
 
 .lg-none {
