@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter&family=Crete+Round&family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
-  <script src="script.js"></script>
+  
   <title>Portfolio</title>
 </head>
 <body>
   <main>
     <header class="header-container">
       <div class="header-title-container"><a class="header-title" href="/" alt="Logo">mPB</a></div>
-      <nav class="menu-icon-container lg-none"><a class="button-head header-menu-icon" href="#"><img src="./images/Menu.svg" alt="Menu icon"/></a></nav>
+      <nav class="menu-icon-container lg-none"><button type='button' class="button-head header-menu-icon" id="hamburger-button"><img src="./images/Menu.svg" alt="Menu icon"/></button></nav>
       <nav class="menu-container-lg sm-none">
         <ul class="nav-button-group">
           <li class="nav-button"><a href="#Portfolio">Portfolio</a></li>
@@ -24,8 +24,8 @@
           <li class="nav-button"><a href="mailto:martin.perezbazan@gmail.com"><img src="./images/Email.svg"></a></li>
         </ul>
       </nav>
-      <div class="menu-mobile-container">
-        <button id='closeBtn' class="close-button">&#10799;</button>
+      <div class="menu-mobile-container sm-none">
+        <button id='closeBtn' type='button' class="close-button">&#10799;</button>
         <ul class="menu-menu-list">
           <li><a class="menu-button" href="#Portfolio">Portfolio</a></li>
           <li><a class="menu-button" href="#About">About</a></li>
@@ -305,4 +305,5 @@
     </section>
   </main>
 </body>
+<script src="script.js"></script>
 </html>
