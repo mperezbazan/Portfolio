@@ -61,6 +61,7 @@ const closeBtn = document.querySelector('.close-button');
 const mobileContainer = document.querySelector('.menu-mobile-container');
 const hamburgerBtn = document.querySelector('#hamburger-button');
 const menuBtn = document.querySelectorAll('.menu-button');
+const modal = document.querySelector('#project-modal');
 function toggleMenu() {
   mobileContainer.classList.toggle('display-none');
 }
@@ -70,6 +71,9 @@ menuBtn.forEach((item) => {
   item.addEventListener('click', toggleMenu);
 });
 
+closeModalButton.addEventListener('click', () => {
+  modal.classList.add('display-none');
+});
 const container = document.getElementById('Portfolio');
 projects.forEach((project, index) => {
   const article = document.createElement('article');
@@ -133,3 +137,80 @@ projects.forEach((project, index) => {
   article.innerHTML = test;
   container.appendChild(article);
 });
+
+const showModal = (id) => {
+  const index = id.substring(id.indexOf('-') + 1, id.length);
+  modal.classList.remove('display-none');
+  const modalTitle = document.querySelector('.modal-title');
+  const modalImage = document.querySelector('.modal-image');
+  const modalText = document.querySelector('.modal-text');
+  const modalLiveButton = document.getElementById('liveButton');
+  const modalSourceButton = document.getElementById('sourceButton');
+  const modalTechnologies = document.querySelector('.modal-tags');
+  modalTitle.textContent = projects[index].name;
+  modalText.textContent = projects[index].description;
+  modalTechnologies.innerHTML = '';
+  projects[index].technologies.forEach((technology) => {
+    const liTechnologies = document.createElement('li');
+    liTechnologies.innerHTML = `<li class="work-tag light modal-tag">${technology}</li>`;
+    modalTechnologies.appendChild(liTechnologies);
+  });
+  modalImage.src = `./images/${projects[index].image}`;
+  modalLiveButton.href = projects[index].liveLink;
+
+  const showModal = (id) => {
+    const index = id.substring(id.indexOf('-') + 1, id.length);
+    modal.classList.remove('display-none');
+    const modalTitle = document.querySelector('.modal-title');
+    const modalImage = document.querySelector('.modal-image');
+    const modalText = document.querySelector('.modal-text');
+    const modalLiveButton = document.getElementById('liveButton');
+    const modalSourceButton = document.getElementById('sourceButton');
+    const modalTechnologies = document.querySelector('.modal-tags');
+    modalTitle.textContent = projects[index].name;
+    modalText.textContent = projects[index].description;
+    modalTechnologies.innerHTML = '';
+    projects[index].technologies.forEach((technology) => {
+      const liTechnologies = document.createElement('li');
+      liTechnologies.innerHTML = `<li class="work-tag light modal-tag">${technology}</li>`;
+
+      modalTechnologies.appendChild(liTechnologies);
+    });
+    modalImage.src = `./images/${projects[index].image}`;
+    modalLiveButton.href = projects[index].liveLink;
+    modalSourceButton.href = projects[index].sourceLink;
+  };
+
+  const cards = document.querySelectorAll('.bg-image');
+cards.forEach((card) => {
+  card.addEventListener('mouseenter', (e) => {
+    e.target.classList.toggle('pointer');
+    const textShow = e.target.querySelector('.work-content-dark');
+    textShow.classList.toggle('invisible');
+    const buttonShow = e.target.querySelector('.work-footer-container-dark');
+    buttonShow.classList.toggle('lg-none');
+  });
+  card.addEventListener('mouseleave', (e) => {
+    e.target.classList.toggle('pointer');
+    const textShow = e.target.querySelector('.work-content-dark');
+    textShow.classList.toggle('invisible');
+    const buttonShow = e.target.querySelector('.work-footer-container-dark');
+    buttonShow.classList.toggle('lg-none');
+  });
+  card.addEventListener('click', (e) => {
+    const { id } = e.target;
+    showModal(id);
+  });
+});
+
+  const buttons = document.querySelectorAll('.project-button');
+  buttons.forEach((button) => {
+    button.addEventListener('touchend', (e) => {
+      const { id } = e.target;
+      showModal(id);
+    });
+    button.addEventListener('click', (e) => {
+      const { id } = e.target;
+      showModal(id);
+    });
+  });
