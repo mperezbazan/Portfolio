@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -22,16 +31,15 @@ ul {
 }
 
 .button {
-  box-sizing: border-box;
   background-color: #ff6b00;
   color: #fff;
+  border: 1px solid #f55800;
   font-family: 'Inter', sans-serif;
   font-size: 17px;
   font-weight: 700;
   height: auto;
   padding: 12px;
   width: fit-content;
-  border: none;
   transition-timing-function: ease-in-out;
   transition-duration: 1s;
 }
@@ -40,6 +48,7 @@ ul {
   background-color: #fff5e1;
   color: #f55800;
   border: 1px solid #f55800;
+  cursor: pointer;
 }
 
 .button:active {
@@ -266,7 +275,6 @@ ul {
 }
 
 .work-tag:hover {
-  cursor: pointer;
   transform: scale(1.1);
 }
 
@@ -486,7 +494,7 @@ ul {
   display: none;
 }
 
-@media screen and (min-device-width: 768px) {
+@media screen and (min-width: 768px) {
   .sm-none {
     display: flex;
   }
@@ -603,11 +611,39 @@ ul {
   }
 
   .data-image {
-    background-image: url('../images/Image-DataDashboard.png');
+    background: linear-gradient(179.35deg, rgba(38, 38, 38, 0) 0.85%, rgba(38, 38, 38, 0.9) 84%), url('../images/Snapshoot-Data.png');
+    background-size: 200%;
+    background-position: 30% 20%;
+  }
+
+  .data-image:hover {
+    background: url('../images/Snapshoot-Data.png');
+    background-size: 200%;
+    background-position: 30% 20%;
   }
 
   .website-image {
-    background-image: url('../images/Image-WebsitePortfolio.png');
+    background: linear-gradient(179.35deg, rgba(38, 38, 38, 0) 0.85%, rgba(38, 38, 38, 0.9) 84%), url('../images/Snapshoot-Website.png');
+    background-size: 200%;
+    background-position: 30% 20%;
+  }
+
+  .website-image:hover {
+    background: url('../images/Snapshoot-Website.png');
+    background-size: 200%;
+    background-position: 30% 20%;
+  }
+
+  .professional-image {
+    background: linear-gradient(179.35deg, rgba(38, 38, 38, 0) 0.85%, rgba(38, 38, 38, 0.9) 84%), url('../images/Snapshoot-Professional.png');
+    background-size: 200%;
+    background-position: 30% 20%;
+  }
+
+  .professional-image:hover {
+    background: url('../images/Snapshoot-Professional.png');
+    background-size: 200%;
+    background-position: 30% 20%;
   }
 
   .about-container {
@@ -709,9 +745,9 @@ ul {
   right: 0;
   z-index: 999;
   backdrop-filter: blur(6px);
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
   background-color: #fff;
   border: 1px solid #dfe1e6;
   top: 20px;
@@ -722,20 +758,20 @@ ul {
   flex-direction: column;
   padding: 24px;
   gap: 40px;
-  }
-  
-  .modal-header {
+}
+
+.modal-header {
   display: flex;
   justify-content: space-between;
-  }
-  
-  .modal-title-content {
+}
+
+.modal-title-content {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  }
-  
-  .modal-title {
+}
+
+.modal-title {
   font-family: 'Crete Round', sans-serif;
   font-size: 32px;
   font-weight: 400;
@@ -743,61 +779,149 @@ ul {
   color: #172b4d;
   align-self: flex-start;
   margin: 0;
-  }
-  
-  .modal-tags {
+}
+
+.modal-tags {
   display: flex;
   gap: 8px;
-  }
-  
-  .modal-tag {
+}
+
+.modal-tag {
   font-size: 13px;
   line-height: 16px;
   font-weight: 600;
   padding: 8px;
   align-self: center;
+}
+
+.modal-button-close {
+  background-color: transparent;
+  border: 0;
+  color: #67798e;
+  font-size: 20px;
+  align-self: flex-start;
+  position: absolute;
+  right: 1px;
+  top: 1px;
+}
+
+.modal-button-close:hover {
+  cursor: pointer;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.modal-image-container {
+  align-self: center;
+}
+
+.modal-image {
+  flex-grow: 1;
+  max-width: 100%;
+  max-height: 220px;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+}
+
+.modal-text {
+  flex-grow: 3;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #344563;
+  margin: 0;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.modal-footer-button {
+  display: flex;
+  gap: 15px;
+  font-size: 14px;
+  padding: 10px;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-content {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 48px 48px rgba(37, 47, 137, 0.08);
+    min-height: 630px;
+    width: 90%;
   }
-  
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .modal-title-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .modal-title {
+    font-family: 'Crete Round', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 44px;
+    color: #172b4d;
+    align-self: flex-start;
+    margin: 0;
+  }
+
+  .modal-tags {
+    display: flex;
+    gap: 8px;
+  }
+
   .modal-button-close {
     background-color: transparent;
     border: 0;
     color: #67798e;
     font-size: 20px;
     align-self: flex-start;
-    position: absolute;
-    right: 1px;
-    top: 1px;
-    }
-    
-    .modal-button-close:hover {
-    cursor: pointer;
-    }
-    
-    .modal-body {
+  }
+
+  .modal-body {
     display: flex;
-    flex-direction: column;
-    gap: 25px;
-    }
-    
-    .modal-image-container {
-    align-self: center;
-    }
-    
-    .modal-image {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .modal-image {
     flex-grow: 1;
-    max-width: 100%;
-    max-height: 220px;
-    margin: 0;
-    padding: 0;
-    }
-    
-    .modal-text-container {
+    max-height: max-content;
+    max-width: max-content;
+  }
+
+  .modal-text-container {
     display: flex;
     flex-direction: column;
     align-items: space-between;
-    }
-    
-    .modal-text {
+  }
+
+  .modal-text {
     flex-grow: 3;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
@@ -805,19 +929,25 @@ ul {
     line-height: 30px;
     color: #344563;
     margin: 0;
-    }
-    
-    .modal-buttons {
+  }
+
+  .modal-buttons {
     display: flex;
     gap: 7px;
-    margin-top: 16px;
-    }
-    
-    .modal-footer-button {
+  }
+
+  .modal-footer-button {
     display: flex;
     gap: 15px;
-    font-size: 14px;
-    padding: 10px;
-    align-items: center;
-    }
-    
+  }
+}
+
+.pointer {
+  cursor: pointer;
+  padding-inline: 0;
+  padding-bottom: 0;
+}
+
+.invisible {
+  visibility: hidden;
+}
