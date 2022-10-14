@@ -217,15 +217,13 @@ fullname.addEventListener('input', (e) => {
   data = { ...data, [e.target.id]: e.target.value };
   localStorage.setItem('data', JSON.stringify(data));
 });
-
 email.value = data?.email || '';
 email.addEventListener('input', (e) => {
   data = { ...data, [e.target.id]: e.target.value };
   localStorage.setItem('data', JSON.stringify(data));
-}); 
-
+});
 message.value = data?.message || '';
 message.addEventListener('input', (e) => {
-  data = { ...data, [e.target.id]: e.target.value};
+  data = { ...data, [e.target.id]: e.target.value };
   localStorage.setItem('data', JSON.stringify(data));
 });
