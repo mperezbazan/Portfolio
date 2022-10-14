@@ -197,15 +197,33 @@ buttons.forEach((button) => {
 });
 
 const form = document.getElementById('contact-form');
+const { fullname, email, message } = form.elements;
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const { email } = form.elements;
   const emailRegex = /[A-Z]/;
-  const message = email.parentNode.querySelector('small');
+  const errorMessage = email.parentNode.querySelector('small');
   if (emailRegex.test(email.value)) {
-    message.textContent = 'You can only use Lowercase, please modify the email address and try again';
+    errorMessage.textContent = 'You can only use Lowercase, please modify the email address and try again';
   } else {
-    message.textContent = '';
+    errorMessage.textContent = '';
     form.submit();
   }
+});
+
+let data = JSON.parse(localStorage.getItem('data'));
+fullname.value = data?.fullname || '';
+fullname.addEventListener('input', (e) => {
+  data = { ...data, [e.target.id]: e.target.value };
+  localStorage.setItem('data', JSON.stringify(data));
+});
+email.value = data?.email || '';
+email.addEventListener('input', (e) => {
+  data = { ...data, [e.target.id]: e.target.value };
+  localStorage.setItem('data', JSON.stringify(data));
+});
+message.value = data?.message || '';
+message.addEventListener('input', (e) => {
+  data = { ...data, [e.target.id]: e.target.value };
+  localStorage.setItem('data', JSON.stringify(data));
 });
