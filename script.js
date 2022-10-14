@@ -210,9 +210,16 @@ form.addEventListener('submit', (e) => {
     form.submit();
   }
 });
+
 let data = JSON.parse(localStorage.getItem('data'));
 fullname.value = data?.name || '';
 fullname.addEventListener('input', (e) => {
   data = { ...data, [e.target.id]: e.target.value };
   localStorage.setItem('data', JSON.stringify(data));
 });
+
+email.value = data?.email || '';
+email.addEventListener('input', (e) => {
+  data = { ...data, [e.target.id]: e.target.value };
+  localStorage.setItem('data', JSON.stringify(data));
+}); 
