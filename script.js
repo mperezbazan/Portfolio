@@ -212,7 +212,7 @@ form.addEventListener('submit', (e) => {
 });
 
 let data = JSON.parse(localStorage.getItem('data'));
-fullname.value = data?.name || '';
+fullname.value = data?.fullname || '';
 fullname.addEventListener('input', (e) => {
   data = { ...data, [e.target.id]: e.target.value };
   localStorage.setItem('data', JSON.stringify(data));
@@ -223,3 +223,9 @@ email.addEventListener('input', (e) => {
   data = { ...data, [e.target.id]: e.target.value };
   localStorage.setItem('data', JSON.stringify(data));
 }); 
+
+message.value = data?.message || '';
+message.addEventListener('input', (e) => {
+  data = { ...data, [e.target.id]: e.target.value};
+  localStorage.setItem('data', JSON.stringify(data));
+});
