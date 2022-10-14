@@ -195,3 +195,17 @@ buttons.forEach((button) => {
     showModal(id);
   });
 });
+
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const { email } = form.elements;
+  const emailRegex = /[A-Z]/;
+  const message = email.parentNode.querySelector('small');
+  if (emailRegex.test(email.value)) {
+    message.textContent = 'You can only use Lowercase, please modify the email address and try again';
+  } else {
+    message.textContent = '';
+    form.submit();
+  }
+});
