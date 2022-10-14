@@ -951,3 +951,9 @@ ul {
 .invisible {
   visibility: hidden;
 }
+
+.error {
+  font-family: 'Inter', sans-serif;
+  color: #900;
+  margin-top: -22px;
+}
