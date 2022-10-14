@@ -203,9 +203,9 @@ form.addEventListener('submit', (e) => {
   const emailRegex = /[A-Z]/;
   const message = email.parentNode.querySelector('small');
   if (emailRegex.test(email.value)) {
-    message.textContent = 'Error. You can only use Lowercase, please modify the email address and try again';
+    message.textContent = 'You can only use Lowercase, please modify the email address and try again';
   } else {
     message.textContent = '';
-    form.submit;
+    form.submit();
   }
-}); 
+});
